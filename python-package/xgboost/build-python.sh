@@ -7,21 +7,21 @@
 # See additional instruction in doc/build.md
 
 # note: this script is build for python package only, and it might have some filename
-#       conflict with build.sh which is for everything. 
+#       conflict with build.sh which is for everything.
 
 
 pushd xgboost
 #remove the pre-compiled .so and trigger the system's on-the-fly compiling
 make clean
 if make python; then
-    echo "Successfully build multi-thread xgboost"
+    echo "Successfully built multi-thread xgboost"
 else
     echo "-----------------------------"
     echo "Building multi-thread xgboost failed"
     echo "Start to build single-thread xgboost"
     make clean
     make python no_omp=1
-    echo "Successfully build single-thread xgboost"
+    echo "Successfully built single-thread xgboost"
     echo "If you want multi-threaded version"
     echo "See additional instructions in doc/build.md"
 fi
